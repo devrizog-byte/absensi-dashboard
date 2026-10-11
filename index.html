@@ -20,13 +20,17 @@
   <main class="wadah">
     <div id="pesan" class="pesan" hidden></div>
 
-    <!-- Ringkasan hari ini -->
+    <!-- T-12: kalimat status raksasa — paham kondisi tanpa berpikir -->
+    <div id="banner-status" class="banner-status">Memuat…</div>
+
+    <!-- Ringkasan (judul dinamis mengikuti filter — T-12d) -->
     <section>
-      <h2>Ringkasan Hari Ini</h2>
+      <h2 id="judul-ringkasan">Ringkasan</h2>
+      <p class="diperbarui" id="diperbarui"></p>
       <div class="grid-kartu">
         <div class="kartu kartu-biru">
           <div class="angka" id="ringkas-hadir">–</div>
-          <div class="label">Hadir</div>
+          <div class="label">Sudah Masuk</div>
         </div>
         <div class="kartu">
           <div class="angka teks-merah" id="ringkas-terlambat">–</div>
@@ -36,10 +40,15 @@
           <div class="angka teks-kuning" id="ringkas-izin">–</div>
           <div class="label">Izin</div>
         </div>
+        <div class="kartu kartu-abu">
+          <div class="angka" id="ringkas-belum">–</div>
+          <div class="label">Belum Absen</div>
+          <div class="nama-belum" id="ringkas-belum-nama"></div>
+        </div>
       </div>
     </section>
 
-    <!-- Filter riwayat -->
+    <!-- Filter riwayat (T-14: otomatis saat tanggal/nama berubah) -->
     <section>
       <h2>Riwayat Kehadiran</h2>
       <div class="kartu filter">
@@ -53,17 +62,16 @@
           <label class="cari">Cari nama
             <input type="search" id="filter-nama" placeholder="cth: Budi">
           </label>
-          <button id="tombol-tampil" class="tombol">Tampilkan</button>
         </div>
       </div>
       <div class="gulir-tabel">
-        <table>
+        <table class="tabel-kartu">
           <thead>
             <tr>
               <th>Waktu</th>
               <th>Nama</th>
               <th>Jenis</th>
-              <th>Ketepatan</th>
+              <th>Status</th>
               <th>Area</th>
               <th>Keterangan</th>
             </tr>
@@ -75,9 +83,9 @@
       </div>
     </section>
 
-    <!-- Rekap per karyawan -->
+    <!-- Rekap karyawan -->
     <section>
-      <h2>Rekap per Karyawan</h2>
+      <h2>Rekap Karyawan</h2>
       <p class="catatan">Periode mengikuti filter tanggal di atas.</p>
       <div class="gulir-tabel">
         <table>
