@@ -235,7 +235,7 @@
   }
 
   // ---- 4. Render & util -----------------------------------------------
-  // T-13: bahasa sehari-hari — "Masuk"/"Pulang", bukan "Check-in"/"Check-out".
+  // T-13: bahasa sehari-hari — "Masuk"/"Pulang" di seluruh label.
   var LABEL_JENIS = { checkin: 'Masuk', checkout: 'Pulang', izin: 'Izin', lembur: 'Lembur' };
   var KELAS_JENIS = { checkin: 'chip-hijau', checkout: 'chip-biru', izin: 'chip-kuning', lembur: 'chip-biru' };
 
@@ -282,7 +282,7 @@
       '<tr><td colspan="6" class="tengah">Menunggu penyiapan.</td></tr>';
   }
 
-  // T-14: pesan error ramah — tanpa istilah teknis (URL/key/config.js).
+  // T-14: pesan error ramah — tanpa istilah teknis untuk pemilik warung.
   function gagal(err) {
     tampilPesan('Tidak bisa memuat data. Periksa koneksi internet, lalu muat ulang halaman.', 'error');
   }
