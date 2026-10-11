@@ -48,7 +48,7 @@ section h2 { font-size: 18px; margin: 0 0 12px; }
 
 .grid-kartu {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
@@ -60,11 +60,27 @@ section h2 { font-size: 18px; margin: 0 0 12px; }
 }
 
 .kartu-biru { background: var(--biru); color: var(--putih); }
-.angka { font-size: 32px; font-weight: 700; }
+.kartu-abu { background: #E9EDF3; }
+.angka { font-size: 40px; font-weight: 700; }
 .label { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+.nama-belum { font-size: 13px; margin-top: 8px; line-height: 1.5; }
 .teks-merah { color: var(--merah); }
 .teks-kuning { color: var(--kuning); }
 .teks-hijau { color: var(--hijau); }
+
+/* T-12: kalimat status raksasa di paling atas. */
+.banner-status {
+  background: var(--putih);
+  border-radius: var(--radius);
+  padding: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 4px rgba(31, 42, 68, 0.08);
+}
+
+/* T-14: stempel "Diperbarui HH:MM:SS". */
+.diperbarui { color: var(--abu-teks); font-size: 12px; margin: -6px 0 12px; }
 
 .filter .baris-filter {
   display: flex;
@@ -155,7 +171,35 @@ td.tengah { text-align: center; color: var(--abu-teks); padding: 24px; }
 footer { text-align: center; color: var(--abu-teks); font-size: 12px; padding: 8px 0 24px; }
 
 @media (max-width: 560px) {
-  .grid-kartu { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-  .angka { font-size: 24px; }
-  .baris-filter .tombol { width: 100%; }
+  .grid-kartu { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .angka { font-size: 28px; }
+  .banner-status { font-size: 17px; padding: 14px; }
+
+  /* T-15: riwayat tampil sebagai kartu vertikal — tanpa scroll horizontal. */
+  table.tabel-kartu,
+  table.tabel-kartu tbody {
+    display: block;
+    background: transparent;
+    box-shadow: none;
+  }
+  table.tabel-kartu thead { display: none; }
+  table.tabel-kartu tr {
+    display: flex;
+    flex-direction: column;
+    background: var(--putih);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 4px rgba(31, 42, 68, 0.08);
+    margin-bottom: 12px;
+    padding: 12px 16px;
+  }
+  table.tabel-kartu td {
+    display: block;
+    border: none;
+    padding: 3px 0;
+    white-space: normal;
+  }
+  table.tabel-kartu td:nth-child(2) { order: -1; font-size: 17px; }
+  table.tabel-kartu td:nth-child(1) { font-size: 15px; font-weight: 600; }
+  table.tabel-kartu td.kolom-keterangan { display: none; }
+  .gulir-tabel { overflow-x: visible; }
 }
