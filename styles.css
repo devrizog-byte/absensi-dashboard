@@ -1,0 +1,161 @@
+/* Dashboard Absensi — gaya selaras aplikasi (biru #4A7FD4, dsb.) */
+:root {
+  --biru: #4A7FD4;
+  --biru-gelap: #3A6BC0;
+  --biru-tua: #1F2A44;
+  --abu-latar: #F1F3F6;
+  --putih: #FFFFFF;
+  --abu-teks: #8A94A6;
+  --hijau: #43A673;
+  --merah: #E05D5D;
+  --kuning: #EBA937;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--abu-latar);
+  color: var(--biru-tua);
+}
+
+.kepala {
+  background: var(--biru-tua);
+  color: var(--putih);
+  padding: 20px 16px;
+}
+
+.kepala-dalam {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kepala h1 { margin: 0; font-size: 22px; }
+.subjudul { margin: 4px 0 0; opacity: 0.75; font-size: 13px; }
+.tanggal-hari-ini { font-size: 14px; opacity: 0.9; }
+
+.wadah { max-width: 960px; margin: 0 auto; padding: 16px; }
+section { margin-bottom: 28px; }
+section h2 { font-size: 18px; margin: 0 0 12px; }
+.catatan { color: var(--abu-teks); font-size: 13px; margin: -6px 0 12px; }
+
+.grid-kartu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.kartu {
+  background: var(--putih);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(31, 42, 68, 0.08);
+}
+
+.kartu-biru { background: var(--biru); color: var(--putih); }
+.angka { font-size: 32px; font-weight: 700; }
+.label { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+.teks-merah { color: var(--merah); }
+.teks-kuning { color: var(--kuning); }
+.teks-hijau { color: var(--hijau); }
+
+.filter .baris-filter {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.baris-filter label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: var(--abu-teks);
+  gap: 4px;
+}
+
+.baris-filter input {
+  padding: 10px 12px;
+  border: 1px solid #D6DCE6;
+  border-radius: 12px;
+  font-size: 15px;
+  min-width: 150px;
+}
+
+.baris-filter .cari { flex: 1; min-width: 160px; }
+
+.tombol {
+  background: var(--biru);
+  color: var(--putih);
+  border: none;
+  border-radius: 12px;
+  padding: 11px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tombol:hover { background: var(--biru-gelap); }
+
+.gulir-tabel { overflow-x: auto; border-radius: var(--radius); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--putih);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(31, 42, 68, 0.08);
+  font-size: 14px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--abu-latar);
+  white-space: nowrap;
+}
+
+th { background: var(--biru-tua); color: var(--putih); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+td.tengah { text-align: center; color: var(--abu-teks); padding: 24px; }
+
+.chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chip-hijau { background: #DDF3E7; color: var(--hijau); }
+.chip-merah { background: #FBE3E3; color: var(--merah); }
+.chip-kuning { background: #FBEFD8; color: #B97F1A; }
+.chip-biru { background: #DCE7F8; color: var(--biru-gelap); }
+.chip-abu { background: #E7EBF1; color: var(--abu-teks); }
+
+.pesan {
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.pesan.peringatan { background: #FBEFD8; color: #8A5F14; }
+.pesan.error { background: #FBE3E3; color: #A83A3A; }
+.pesan.sukses { background: #DDF3E7; color: #2A7A4E; }
+
+footer { text-align: center; color: var(--abu-teks); font-size: 12px; padding: 8px 0 24px; }
+
+@media (max-width: 560px) {
+  .grid-kartu { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .angka { font-size: 24px; }
+  .baris-filter .tombol { width: 100%; }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Absensi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="kepala">
+    <div class="kepala-dalam">
+      <div>
+        <h1>Dashboard Absensi</h1>
+        <p class="subjudul">Rekap kehadiran karyawan — Rizoglabs Studio</p>
+      </div>
+      <div class="tanggal-hari-ini" id="tanggal-hari-ini"></div>
+    </div>
+  </header>
+
+  <main class="wadah">
+    <div id="pesan" class="pesan" hidden></div>
+
+    <!-- Ringkasan hari ini -->
+    <section>
+      <h2>Ringkasan Hari Ini</h2>
+      <div class="grid-kartu">
+        <div class="kartu kartu-biru">
+          <div class="angka" id="ringkas-hadir">–</div>
+          <div class="label">Hadir</div>
+        </div>
+        <div class="kartu">
+          <div class="angka teks-merah" id="ringkas-terlambat">–</div>
+          <div class="label">Terlambat</div>
+        </div>
+        <div class="kartu">
+          <div class="angka teks-kuning" id="ringkas-izin">–</div>
+          <div class="label">Izin</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter riwayat -->
+    <section>
+      <h2>Riwayat Kehadiran</h2>
+      <div class="kartu filter">
+        <div class="baris-filter">
+          <label>Dari
+            <input type="date" id="filter-dari">
+          </label>
+          <label>Sampai
+            <input type="date" id="filter-sampai">
+          </label>
+          <label class="cari">Cari nama
+            <input type="search" id="filter-nama" placeholder="cth: Budi">
+          </label>
+          <button id="tombol-tampil" class="tombol">Tampilkan</button>
+        </div>
+      </div>
+      <div class="gulir-tabel">
+        <table>
+          <thead>
+            <tr>
+              <th>Waktu</th>
+              <th>Nama</th>
+              <th>Jenis</th>
+              <th>Ketepatan</th>
+              <th>Area</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody id="tabel-riwayat">
+            <tr><td colspan="6" class="tengah">Memuat…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Rekap per karyawan -->
+    <section>
+      <h2>Rekap per Karyawan</h2>
+      <p class="catatan">Periode mengikuti filter tanggal di atas.</p>
+      <div class="gulir-tabel">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Jabatan</th>
+              <th>Hadir</th>
+              <th>Terlambat</th>
+              <th>Izin</th>
+              <th>Lembur</th>
+            </tr>
+          </thead>
+          <tbody id="tabel-rekap">
+            <tr><td colspan="6" class="tengah">Memuat…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>Dashboard Absensi v1 · data dari aplikasi Absensi (sinkron opsional)</p>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
